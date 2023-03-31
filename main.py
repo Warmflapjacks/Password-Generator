@@ -13,7 +13,8 @@ import datetime #as a timestamp of when user/pass was create
 import sys
 
 # Global data types
-database = []
+database = [{"a": "value 1"}, {"b": "value 2"}, {"c": "value 3"}] #Test entries
+
 
 # Define functions
 def core_iteration():
@@ -44,9 +45,34 @@ def exit_system():
     sys.exit()
 
 def get_username():
-    print("Enter a username to be entered into the database.")
+    print("\nEnter a username to be entered into the database.")
     username = input("Username: ")
-    print("Username is", username)
+
+    if check_for_duplicates(database, username) == True:
+        get_username()
+    else:
+        print("Now in the else function to call random password generation")
+        #call random password function?
+        #take username and append to a dictionary
+        pass
+
+def check_for_duplicates(check_list, duplicate):
+    is_duplicate = False
+    #Checks each key at database index
+    for dictionary_index in check_list:
+        if duplicate in dictionary_index:
+            is_duplicate = True
+            print("This username is taken.")
+            return is_duplicate
+    return is_duplicate
+
+            
+def append_to_database():
+    pass
+
+def append_to_dict():
+    pass
+
 
 
 # Starts program
@@ -56,4 +82,6 @@ core_iteration()
 the list is the main storage
 each user name will be a key in a dictionary
 the password will be assigned as the value for the username creating a key-value pair
+
+WHEN TO DEFINE THE DICTIONARY?
 """
