@@ -8,7 +8,6 @@ Date: 03/31/2023
 
 # Import Libraries
 import string #for random password creation
-import random #for randomly selecting from ASCII characters
 import datetime #as a timestamp of when user/pass was create
 import secrets
 import sys
@@ -37,7 +36,7 @@ def get_user_input(selection):
         case "1":
             get_username()
         case "2":
-            return print("lookup a username function") #Define this function
+            lookup_username()
         case "E":
             exit_system()
 
@@ -54,6 +53,7 @@ def get_username():
     else:
         user_pass = generate_password()
         append_to_database(username,user_pass)
+        #Add function to show timestamps when user was entered into database
     
     #Back to Main Menu
     core_iteration()
@@ -79,14 +79,17 @@ def generate_password():
     password = ''.join(secrets.choice(pass_inputs) for i in range(12))
     return password
 
+def lookup_username():
+    print("\nEnter the username you are looking for.")
+    lookup = input("User:")
+    
+    if check_for_duplicates(database, lookup):
+        print(lookup, "was found in the database.")
+    else:
+        print(lookup, "was not found in the database.")
+
+    #Back to Main Menu
+    core_iteration()
 
 # Starts program
 core_iteration()
-
-"""
-the list is the main storage
-each user name will be a key in a dictionary
-the password will be assigned as the value for the username creating a key-value pair
-
-WHEN TO DEFINE THE DICTIONARY?
-"""
