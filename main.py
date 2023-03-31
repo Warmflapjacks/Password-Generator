@@ -52,6 +52,7 @@ def get_username():
     username = input("Username: ")
 
     if check_for_duplicates(database, username) == True:
+        print(f"The username {username} is already taken. Choose another username.")
         get_username()
     else:
         user_pass = generate_password()
@@ -66,7 +67,7 @@ def check_for_duplicates(check_list, duplicate):
     for dictionary_index in check_list:
         if duplicate in dictionary_index:
             is_duplicate = True
-            print("This username is taken.")
+            # print("This username is taken.")
             return is_duplicate
     return is_duplicate
 
