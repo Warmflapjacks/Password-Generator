@@ -14,7 +14,7 @@ import secrets
 import sys
 
 # Global data types
-database = [{"a": "value 1"}, {"b": "value 2"}, {"c": "value 3"}] #Test entries
+database = []
 
 
 # Define functions
@@ -53,8 +53,10 @@ def get_username():
         get_username()
     else:
         user_pass = generate_password()
-        print(user_pass)
-        #take username and append to a dictionary
+        append_to_database(username,user_pass)
+    
+    #Back to Main Menu
+    core_iteration()
 
 def check_for_duplicates(check_list, duplicate):
     is_duplicate = False
@@ -66,11 +68,11 @@ def check_for_duplicates(check_list, duplicate):
             return is_duplicate
     return is_duplicate
 
-def append_to_database():
-    pass
-
-def append_to_dict():
-    pass
+def append_to_database(uname, upass):
+    entry = dict()
+    entry[uname] = upass
+    database.append(entry)
+    # print(database)
 
 def generate_password():
     pass_inputs = string.ascii_letters + string.digits
