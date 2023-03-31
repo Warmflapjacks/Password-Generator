@@ -1,0 +1,46 @@
+"""
+***Psuedo***
+Create a list with dicts for each user entry(want key:value pairs here since duplicates are not allowed)
+
+
+
+************START HERE***************
+ ---MAIN MENU---
+    Switch case
+        1: -Enter information in database
+        2: -Return a User/Pass combination
+        E: -Exit
+
+If 1:
+    Ask user to create a username (function)
+        while username == something already in dict
+            print "username already in use"
+            break or continue?
+        else
+            enter username into dict
+            call password length function
+
+    Ask user to select a password length (function???)   
+    ***Is password length necessary? Or should it assign to the username and the script specifies the length***                         
+        while password length < =0
+            print "password must be longer than x"
+            call function again? or break
+        else
+            import a random password that equals user selected password length
+            assign password to username just created
+            prints username/password/timestamp combination 
+If 2:
+    What username is being looked for (function)
+        found = false
+            for x in len(list)
+                if "username" in dictionary:
+                    found = true (is a boolean needed??)
+                    print "found"
+                    return to main menu
+
+If 3:
+    if selection === e (function)
+        sys.exit()
+
+Exception handling??
+"""
