@@ -53,7 +53,6 @@ def get_username():
     else:
         user_pass = generate_password()
         append_to_database(username,user_pass)
-        #Add function to show timestamps when user was entered into database
     
     #Back to Main Menu
     core_iteration()
@@ -72,7 +71,7 @@ def append_to_database(uname, upass):
     entry = dict()
     entry[uname] = upass
     database.append(entry)
-    # print(database)
+    print(f"{uname}'s password is: {upass}")
 
 def generate_password():
     pass_inputs = string.ascii_letters + string.digits
