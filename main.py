@@ -25,12 +25,15 @@ def core_iteration():
     print("E: Exit the program")
     user_input = input("\nSelection:")
 
-    if user_input == "E" or "e":
-        get_user_input(user_input.upper())
+    if(is_input_valid(user_input)):
+        if user_input == "E" or "e":
+            get_user_input(user_input.upper())
+        else:
+            get_user_input(user_input) 
     else:
-        get_user_input(user_input) 
-
-    #ADD AN INPUT VERIFICATION HERE (I.E. WHAT HAPPENS IF USER ENTERS "Z" OR "14")
+        print("Invalid selection.. Returning to Main Menu")
+        core_iteration()
+    
 def get_user_input(selection):
     match selection:
         case "1":
@@ -89,6 +92,13 @@ def lookup_username():
 
     #Back to Main Menu
     core_iteration()
+
+def is_input_valid(check_input):
+    valid_entries = ["1", "2", "e", "E"]
+    if check_input in valid_entries:
+        return True
+    else:
+        return False
 
 # Starts program
 core_iteration()
