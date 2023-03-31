@@ -10,6 +10,7 @@ Date: 03/31/2023
 import string #for random password creation
 import random #for randomly selecting from ASCII characters
 import datetime #as a timestamp of when user/pass was create
+import secrets
 import sys
 
 # Global data types
@@ -51,10 +52,9 @@ def get_username():
     if check_for_duplicates(database, username) == True:
         get_username()
     else:
-        print("Now in the else function to call random password generation")
-        #call random password function?
+        user_pass = generate_password()
+        print(user_pass)
         #take username and append to a dictionary
-        pass
 
 def check_for_duplicates(check_list, duplicate):
     is_duplicate = False
@@ -66,13 +66,16 @@ def check_for_duplicates(check_list, duplicate):
             return is_duplicate
     return is_duplicate
 
-            
 def append_to_database():
     pass
 
 def append_to_dict():
     pass
 
+def generate_password():
+    pass_inputs = string.ascii_letters + string.digits
+    password = ''.join(secrets.choice(pass_inputs) for i in range(12))
+    return password
 
 
 # Starts program
