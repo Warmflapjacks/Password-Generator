@@ -57,8 +57,9 @@ def get_username():
         print(f"The username {username} is already taken. Choose another username.")
         get_username()
     else:
+        date_of_birth = enter_user_birthday()
         user_pass = generate_password()
-        append_to_database(username,user_pass)
+        append_to_database(username, user_pass, date_of_birth)
     
     #Back to Main Menu
     core_iteration()
@@ -74,9 +75,10 @@ def check_for_duplicates(check_list, duplicate):
     return is_duplicate
 
 # Adds the username and pass as a dictionary into the database
-def append_to_database(uname, upass):
+def append_to_database(uname, upass, dob):
     entry = dict()
     entry[uname] = upass
+    entry["DOB"] = dob
     database.append(entry)
     print(f"{uname}'s password is: {upass}")
 
@@ -107,5 +109,25 @@ def is_input_valid(check_input):
     else:
         return False
 
+def enter_user_birthday():
+    print("\nEnter your date of birth in the format MM-DD-YYYY. Do not include hyphens.")
+    birthday = input("Date of Birth:")
+
+    return birthday
+
 # Starts program
 core_iteration()
+
+"""
+====================================
+Additional things to add
+- Require birthday as a verification after entering username since passwords are random and arent expected to be remembered
+    -100% need exception handling
+- The option to see password if found in the database
+    Require entering birthday as verification
+- The ability to change password if found in database
+    Require entering birthday as verification
+-Current date/time when logging in
+-Date/Time user was added into database
+===================================
+"""
